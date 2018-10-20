@@ -8,7 +8,14 @@
 
 class ProdukController
 {
-
+    public function showProdukPenjual()
+    {
+        if (isset($_SESSION['user'])){
+            require_once ('view/pages/v_penjual_produk.php');
+        } else {
+            header("location: index.php?controller=login&action=login");
+        }
+    }
 }
 
 ?>

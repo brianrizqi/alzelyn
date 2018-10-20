@@ -1,0 +1,94 @@
+.navbar-brand{
+  font-family:fantasy;
+  /* font-size:30px; */
+}
+
+h1.text-center{
+  font-family:futura bk bt;
+}
+
+h2.text-center{
+  font-family:futura bk bt;
+}
+
+.active{
+  font-family:fantasy;
+  font-size:40px;
+}
+
+.dropdown{
+  font-size:20px;
+  font-family:arial;
+  padding:5px;
+  margin-top:2px;
+}
+
+div#promo{
+  text-align:center;
+  padding:50px;
+  background:url(../../assets/img/header.jpg);
+  background-size:cover;
+}
+
+#promo .jumbotron{
+  border-radius:20px;
+  padding:40px;
+  background-color:rgba(255,255,255,0.75);
+}
+
+button.btn.btn-default{
+  font-family:sans-serif;
+  font-size:20px;
+  width:100px;
+  padding:5px;
+  margin-top:20%;
+}
+
+#collapse-1{
+  margin:100%;
+  text-align:center;
+}
+
+div.col-md-12{
+  text-align:center;
+}
+
+button.btn.btn-default{
+  font-size:30px;
+  width:100%;
+  margin-top:20px;
+  font-family:fantasy;
+}
+/* button.btn.navbar-btn{
+  font-size:20px;
+  font-family:sans-serif;
+  padding:5px;
+  margin-top:20px;
+} */
+
+div.col-md-12{
+  height:100px;
+}
+
+input.input-lg{
+  margin-top:20px;
+  margin-left:20px;
+}
+
+div.col-md-12{
+  background-color:black;
+}
+
+ul:nht-child(1){
+  background-color:#ffff;
+}
+.navbar{
+  font-size:15px;
+  font-family:sans-serif;
+  padding:5px;
+  margin-top:20px;
+}
+#but{
+  float:right;
+  margin-top: 15px;
+}

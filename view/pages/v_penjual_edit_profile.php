@@ -34,6 +34,10 @@
             </li>
             <li class="active"><a href="v_penjual_profile.php"><i
                             class="fa fa-fw fa-user-circle"></i><span>Profile</span></a></li>
+            <!--            <li><a href="?controller=home&action=homePenjual"><i class="fa fa-fw fa-home"></i><span>Home</span></a></li>-->
+            <!--            <li><a href="?controller=produk&action=showProdukPenjual"><i class="fa fa-fw fa-magic"></i><span>Produk</span></a></li>-->
+            <!--            <li><a href="?controller=transaksi&action=showTransaksiPenjual"><i class="fa fa-fw fa-shopping-bag"></i><span>Transaksi</span></a></li>-->
+            <!--            <li class="active"><a href="?controller=user&action=showProfilePenjual"><i class="fa fa-fw fa-user-circle"></i><span>Profile</span></a></li>-->
         </ul>
     </div>
     <div id="main-panel">
@@ -66,34 +70,45 @@
                             <div class="panel-heading" style="background-color: #1daf9c;">
                             </div>
                             <div class="panel-body">
-                                <form method="post" enctype="multipart/form-data">
-                                    <div class="form-group">
-                                        <label>Nama </label>
-                                        <input type="text" name="nama" class="form-control" value="" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Email</label>
-                                        <input type="email" name="harga" class="form-control" value="" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Alamat</label>
-                                        <input type="text" name="harga" class="form-control" value="" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>No Telp</label>
-                                        <input type="number" name="berat" class="form-control" value="" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Username</label>
-                                        <input type="text" name="harga" class="form-control" value="" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label>Password</label>
-                                        <input type="password" name="harga" class="form-control" value="" required>
-                                    </div>
-                                    <input type="submit" value="Ubah" class="btn btn-primary" name="ubah">
-                                    <input type="submit" value="Batal" class="btn btn-danger" name="batal">
-                                </form>
+                                <?php
+//                                foreach ($list as $item) {
+                                    ?>
+                                    <form method="post" enctype="multipart/form-data">
+                                        <div class="form-group">
+                                            <label>Nama </label>
+                                            <input type="text" name="nama" class="form-control" value="" required>
+<!--                                            <input type="text" name="nama" class="form-control" value="--><?//=$item['nama']?><!--" required>-->
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Email</label>
+                                            <input type="email" name="harga" class="form-control" value="" required>
+<!--                                            <input type="email" name="harga" class="form-control" value="--><?//=$item['email']?><!--" required>-->
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Alamat</label>
+                                            <input type="text" name="harga" class="form-control" value="" required>
+<!--                                            <input type="text" name="harga" class="form-control" value="--><?//=$item['alamat']?><!--" required>-->
+                                        </div>
+                                        <div class="form-group">
+                                            <label>No Telp</label>
+                                            <input type="number" name="berat" class="form-control" value="" required>
+<!--                                            <input type="number" name="berat" class="form-control" value="--><?//=$item['no_tlp']?><!--" required>-->
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Username</label>
+                                            <input type="text" name="harga" class="form-control" value="" required>
+<!--                                            <input type="text" name="harga" class="form-control" value="--><?//=$item['username']?><!--" required>-->
+                                        </div>
+                                        <div class="form-group">
+                                            <label>Password</label>
+                                            <input type="password" name="harga" class="form-control" value="" required>
+                                        </div>
+                                        <input type="submit" value="Ubah" class="btn btn-primary" name="ubah">
+                                        <input type="submit" value="Batal" class="btn btn-danger" name="batal">
+                                    </form>
+                                <?php
+//                                    }
+                                ?>
                             </div>
                         </div>
                     </div>

@@ -1,0 +1,47 @@
+#produk{
+  font-size: 20px;
+  font-family:'caviar dreams';
+  margin-left: 15px;
+}
+#harga{
+  color: #F08080;
+}
+#kaki{
+  color: #F08080;
+  font-size: 15px;
+  font-family: 'caviar dreams';
+}
+#style{
+  font-family: 'caviar dreams';
+}
+#ukuran{
+width: 100%;
+height: auto;
+/* background: #C3C3C3; */
+}
+#navv{
+  font-size: 15px;
+  font-family: 'caviar dreams';
+}
+#judul{
+  text-align: center;
+  font-family: 'caviar dreams';
+  font-size: 36px;
+    color: #F08080;
+
+}
+#iklan{
+  font-family: 'caviar dreams';
+  /* color: #F08080; */
+  font-size: 15px;
+}
+#iklan1{
+  font-family: 'caviar dreams';
+  color: #F08080;
+  font-size: 99px;
+}
+#iklan2{
+  font-size: 89px;
+  font-family: 'caviar dreams';
+  text-align: center;
+}

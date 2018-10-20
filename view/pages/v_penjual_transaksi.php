@@ -32,6 +32,10 @@
             <li class="active"><a href="v_penjual_transaksi.php"><i
                             class="fa fa-fw fa-shopping-bag"></i><span>Transaksi</span></a></li>
             <li><a href="v_penjual_profile.php"><i class="fa fa-fw fa-user-circle"></i><span>Profile</span></a></li>
+<!--                        <li><a href="?controller=home&action=homePenjual"><i class="fa fa-fw fa-home"></i><span>Home</span></a></li>-->
+<!--                        <li><a href="?controller=produk&action=showProdukPenjual"><i class="fa fa-fw fa-magic"></i><span>Produk</span></a></li>-->
+<!--                        <li class="active"><a href="?controller=transaksi&action=showTransaksiPenjual"><i class="fa fa-fw fa-shopping-bag"></i><span>Transaksi</span></a></li>-->
+<!--                        <li><a href="?controller=user&action=showProfilePenjual"><i class="fa fa-fw fa-user-circle"></i><span>Profile</span></a></li>-->
         </ul>
     </div>
     <div id="main-panel">
@@ -70,15 +74,6 @@
                                 <h5>Jumlah</h5>
                                 <h5>Status</h5>
                             </div>
-                            <div class="panel-body">
-                                <div style="position: absolute; margin-top: -30px; right: 50px;">
-                                    <button class="btn btn-success" data-class="">Verif</button>
-                                    <a href="v_penjual_detail_transaksi.php">
-                                        <button class="btn btn-primary" data-class="floyd-purple">Detail</button>
-                                    </a>
-                                    <button class="btn btn-danger" data-class="floyd-red">Delete</button>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="col-xs-12">
@@ -91,33 +86,6 @@
                                 <h5>Harga</h5>
                                 <h5>Jumlah</h5>
                                 <h5>Status</h5>
-                            </div>
-                            <div class="panel-body">
-                                <div style="position: absolute; margin-top: -30px; right: 50px;">
-                                    <button class="btn btn-success" data-class="">Verif</button>
-                                    <button class="btn btn-primary" data-class="floyd-purple">Detail</button>
-                                    <button class="btn btn-danger" data-class="floyd-red">Delete</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xs-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Lipstick</h3>
-                            </div>
-                            <div class="panel-body">
-                                <h5>Pembeli</h5>
-                                <h5>Harga</h5>
-                                <h5>Jumlah</h5>
-                                <h5>Status</h5>
-                            </div>
-                            <div class="panel-body">
-                                <div style="position: absolute; margin-top: -30px; right: 50px;">
-                                    <button class="btn btn-success" data-class="">Verif</button>
-                                    <button class="btn btn-primary" data-class="floyd-purple">Detail</button>
-                                    <button class="btn btn-danger" data-class="floyd-red">Delete</button>
-                                </div>
                             </div>
                         </div>
                     </div>

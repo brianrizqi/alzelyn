@@ -33,6 +33,10 @@
             </li>
             <li class="active"><a href="v_penjual_profile.php"><i
                             class="fa fa-fw fa-user-circle"></i><span>Profile</span></a></li>
+            <!--            <li><a href="?controller=home&action=homePenjual"><i class="fa fa-fw fa-home"></i><span>Home</span></a></li>-->
+            <!--            <li><a href="?controller=produk&action=showProdukPenjual"><i class="fa fa-fw fa-magic"></i><span>Produk</span></a></li>-->
+            <!--            <li><a href="?controller=transaksi&action=showTransaksiPenjual"><i class="fa fa-fw fa-shopping-bag"></i><span>Transaksi</span></a></li>-->
+            <!--            <li class="active"><a href="?controller=user&action=showProfilePenjual"><i class="fa fa-fw fa-user-circle"></i><span>Profile</span></a></li>-->
         </ul>
     </div>
     <div id="main-panel">
@@ -70,16 +74,27 @@
                         <th>Telepon</th>
                     </tr>
                     </thead>
+                    <?php
+                    //                    foreach ($list as $item) {
+                    ?>
                     <tbody>
                     <tr>
                         <td>Brian Rizqi</td>
                         <td>brianrizqi@cs.unej.ac.id</td>
                         <td>Jember</td>
                         <td>085231193649</td>
+                        <!--                            <td>--><? //= $item['nama'] ?><!--</td>-->
+                        <!--                            <td>--><? //= $item['email'] ?><!--</td>-->
+                        <!--                            <td>--><? //= $item['alamat'] ?><!--</td>-->
+                        <!--                            <td>--><? //= $item['no_tlp'] ?><!--</td>-->
                     </tr>
                     </tbody>
+                    <?php
+                    //}
+                    ?>
                 </table>
-                <a href="v_penjual_edit_profile.php" class="btn btn-primary" style="position: relative; left: 95%;">Edit</a>
+                <a href="v_penjual_edit_profile.php" class="btn btn-primary"
+                   style="position: relative; left: 95%;">Edit</a>
             </div>
         </div>
     </div>
@@ -87,5 +102,3 @@
 
 </body>
 </html>
-
-
