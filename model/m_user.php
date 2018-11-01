@@ -22,7 +22,8 @@ class User
                 'nama' => $item['nama'],
                 'email' => $item['email'],
                 'alamat' => $item['alamat'],
-                'no_tlp' => $item['no_tlp']
+                'no_tlp' => $item['no_tlp'],
+                'username' => $item['username'],
             );
         }
         return $list;
@@ -44,6 +45,23 @@ class User
             );
         }
         return $list;
+    }
+
+    public static function editPembeli($nama,$email,$alamat,$no_tlp,$username,$password,$id_user)
+    {
+        global $con;
+        $sql = "update users set nama='$nama',email='$email',alamat='$alamat',no_tlp='$no_tlp',
+username = '$username', password = '$password' where id_user = $id_user";
+        $result = $con->query($sql);
+        return $result;
+    }
+    public static function editPenjual($nama,$email,$alamat,$no_tlp,$username,$password,$id_user)
+    {
+        global $con;
+        $sql = "update users set nama='$nama',email='$email',alamat='$alamat',no_tlp='$no_tlp',
+username = '$username', password = '$password' where id_user = $id_user";
+        $result = $con->query($sql);
+        return $result;
     }
 }
 

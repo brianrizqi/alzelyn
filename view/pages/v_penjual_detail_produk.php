@@ -15,8 +15,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../resources/css/style.css" type="text/css">
-    <link rel="stylesheet" href="../../resources/css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="resources/css/style.css" type="text/css">
+    <link rel="stylesheet" href="resources/css/font-awesome-4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Document</title>
@@ -28,16 +28,13 @@
             <div class="sidebar-avatar-text">Penjual</div>
         </div>
         <ul class="sidebar-nav">
-            <li><a href="v_penjual.php"><i class="fa fa-fw fa-home"></i><span>Home</span></a></li>
-            <li class="active"><a href="v_penjual_produk.php"><i class="fa fa-fw fa-magic"></i><span>Produk</span></a>
+            <li><a href="?controller=home&action=homePenjual"><i class="fa fa-fw fa-home"></i><span>Home</span></a></li>
+            <li class="active"><a href="?controller=produk&action=showProdukPenjual"><i
+                            class="fa fa-fw fa-magic"></i><span>Produk</span></a></li>
+            <li><a href="?controller=transaksi&action=showTransaksiPenjual"><i
+                            class="fa fa-fw fa-shopping-bag"></i><span>Transaksi</span></a></li>
+            <li><a href="?controller=user&action=showProfilePenjual"><i class="fa fa-fw fa-user-circle"></i><span>Profile</span></a>
             </li>
-            <li><a href="v_penjual_transaksi.php"><i class="fa fa-fw fa-shopping-bag"></i><span>Transaksi</span></a>
-            </li>
-            <li><a href="v_penjual_profile.php"><i class="fa fa-fw fa-user-circle"></i><span>Profile</span></a></li>
-            <!--                        <li><a href="?controller=home&action=homePenjual"><i class="fa fa-fw fa-home"></i><span>Home</span></a></li>-->
-            <!--                        <li class="active"><a href="?controller=produk&action=showProdukPenjual"><i class="fa fa-fw fa-magic"></i><span>Produk</span></a></li>-->
-            <!--                        <li><a href="?controller=transaksi&action=showTransaksiPenjual"><i class="fa fa-fw fa-shopping-bag"></i><span>Transaksi</span></a></li>-->
-            <!--                        <li><a href="?controller=user&action=showProfilePenjual"><i class="fa fa-fw fa-user-circle"></i><span>Profile</span></a></li>-->
         </ul>
     </div>
     <div id="main-panel">
@@ -64,42 +61,47 @@
         </div>
         <div id="content">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-3">
+                <?php
+                foreach ($list as $item) {
+                    ?>
+                    <div class="row">
+                        <div class="col-md-3">
 
-                    </div>
-                    <div class="col-md-6">
-                        <div class="panel panel-default">
-                            <div class="panel-heading" style="background-color: #1daf9c;">
-                            </div>
-                            <div class="panel-body">
-                                <center>
-                                    <img src="../../resources/images/Logo.png" style="height: 450px; width: 100%;">
-                                </center>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" style="background-color: #1daf9c;">
+                                </div>
+                                <div class="panel-body">
+                                    <center>
+                                        <img src="gambar/<?=$item['gambar']?>" style="height: 450px; width: 100%;">
+                                    </center>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-xs-3">
+                    <div class="row">
+                        <div class="col-xs-3">
 
-                    </div>
-                    <div class="col-xs-6">
-                        <div class="panel">
-                            <div class="panel-body">
-                                <h2>Nama Produk</h2>
-                                <br>
-                                <h3>Deskripsi</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit reprehenderit fugiat quisquam. Ipsa culpa temporibus, magni fugiat architecto a cupiditate, ducimus perferendis obcaecati magnam id. Maxime eligendi omnis possimus iusto.</p>
-                                <h4 class="break-top-20">Harga</h4>
-                                <p>Rp. 10.000</p>
-                                <h4 class="break-top-20">Stok</h4>
-                                <p>20</p>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="panel">
+                                <div class="panel-body">
+                                    <h2><?=$item['nama_produk']?></h2>
+                                    <br>
+                                    <h4>Kategori</h4>
+                                    <p><?=$item['kategori']?></p>
+                                    <h4 class="break-top-20">Harga</h4>
+                                    <p>Rp. <?=number_format($item['harga'],0,".",".")?></p>
+                                    <h4 class="break-top-20">Stok</h4>
+                                    <p><?=$item['stok']?></p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
+                    <?php
+                }
+                ?>
             </div>
         </div>
     </div>

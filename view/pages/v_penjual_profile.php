@@ -14,8 +14,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../resources/css/style.css" type="text/css">
-    <link rel="stylesheet" href="../../resources/css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="resources/css/style.css" type="text/css">
+    <link rel="stylesheet" href="resources/css/font-awesome-4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Document</title>
@@ -27,16 +27,13 @@
             <div class="sidebar-avatar-text">Penjual</div>
         </div>
         <ul class="sidebar-nav">
-            <li><a href="v_penjual.php"><i class="fa fa-fw fa-home"></i><span>Home</span></a></li>
-            <li><a href="v_penjual_produk.php"><i class="fa fa-fw fa-magic"></i><span>Produk</span></a></li>
-            <li><a href="v_penjual_transaksi.php"><i class="fa fa-fw fa-shopping-bag"></i><span>Transaksi</span></a>
-            </li>
-            <li class="active"><a href="v_penjual_profile.php"><i
+            <li><a href="?controller=home&action=homePenjual"><i class="fa fa-fw fa-home"></i><span>Home</span></a></li>
+            <li><a href="?controller=produk&action=showProdukPenjual"><i
+                            class="fa fa-fw fa-magic"></i><span>Produk</span></a></li>
+            <li><a href="?controller=transaksi&action=showTransaksiPenjual"><i
+                            class="fa fa-fw fa-shopping-bag"></i><span>Transaksi</span></a></li>
+            <li class="active"><a href="?controller=user&action=showProfilePenjual"><i
                             class="fa fa-fw fa-user-circle"></i><span>Profile</span></a></li>
-            <!--            <li><a href="?controller=home&action=homePenjual"><i class="fa fa-fw fa-home"></i><span>Home</span></a></li>-->
-            <!--            <li><a href="?controller=produk&action=showProdukPenjual"><i class="fa fa-fw fa-magic"></i><span>Produk</span></a></li>-->
-            <!--            <li><a href="?controller=transaksi&action=showTransaksiPenjual"><i class="fa fa-fw fa-shopping-bag"></i><span>Transaksi</span></a></li>-->
-            <!--            <li class="active"><a href="?controller=user&action=showProfilePenjual"><i class="fa fa-fw fa-user-circle"></i><span>Profile</span></a></li>-->
         </ul>
     </div>
     <div id="main-panel">
@@ -75,25 +72,21 @@
                     </tr>
                     </thead>
                     <?php
-                    //                    foreach ($list as $item) {
+                                        foreach ($list as $item) {
                     ?>
                     <tbody>
                     <tr>
-                        <td>Brian Rizqi</td>
-                        <td>brianrizqi@cs.unej.ac.id</td>
-                        <td>Jember</td>
-                        <td>085231193649</td>
-                        <!--                            <td>--><? //= $item['nama'] ?><!--</td>-->
-                        <!--                            <td>--><? //= $item['email'] ?><!--</td>-->
-                        <!--                            <td>--><? //= $item['alamat'] ?><!--</td>-->
-                        <!--                            <td>--><? //= $item['no_tlp'] ?><!--</td>-->
+                        <td><?= $item['nama'] ?></td>
+                        <td><?= $item['email'] ?></td>
+                        <td><?= $item['alamat'] ?></td>
+                        <td><?= $item['no_tlp'] ?></td>
                     </tr>
                     </tbody>
                     <?php
-                    //}
+                    }
                     ?>
                 </table>
-                <a href="v_penjual_edit_profile.php" class="btn btn-primary"
+                <a href="?controller=user&action=showEditProfilePenjual" class="btn btn-primary"
                    style="position: relative; left: 95%;">Edit</a>
             </div>
         </div>
