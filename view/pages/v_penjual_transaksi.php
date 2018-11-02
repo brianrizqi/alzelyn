@@ -14,8 +14,8 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../resources/css/style.css" type="text/css">
-    <link rel="stylesheet" href="../../resources/css/font-awesome-4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="resources/css/style.css" type="text/css">
+    <link rel="stylesheet" href="resources/css/font-awesome-4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Document</title>
@@ -27,15 +27,13 @@
             <div class="sidebar-avatar-text">Penjual</div>
         </div>
         <ul class="sidebar-nav">
-            <li><a href="v_penjual.php"><i class="fa fa-fw fa-home"></i><span>Home</span></a></li>
-            <li><a href="v_penjual_produk.php"><i class="fa fa-fw fa-magic"></i><span>Produk</span></a></li>
-            <li class="active"><a href="v_penjual_transaksi.php"><i
+            <li><a href="?controller=home&action=homePenjual"><i class="fa fa-fw fa-home"></i><span>Home</span></a></li>
+            <li><a href="?controller=produk&action=showProdukPenjual"><i
+                            class="fa fa-fw fa-magic"></i><span>Produk</span></a></li>
+            <li class="active"><a href="?controller=transaksi&action=showTransaksiPenjual"><i
                             class="fa fa-fw fa-shopping-bag"></i><span>Transaksi</span></a></li>
-            <li><a href="v_penjual_profile.php"><i class="fa fa-fw fa-user-circle"></i><span>Profile</span></a></li>
-<!--                        <li><a href="?controller=home&action=homePenjual"><i class="fa fa-fw fa-home"></i><span>Home</span></a></li>-->
-<!--                        <li><a href="?controller=produk&action=showProdukPenjual"><i class="fa fa-fw fa-magic"></i><span>Produk</span></a></li>-->
-<!--                        <li class="active"><a href="?controller=transaksi&action=showTransaksiPenjual"><i class="fa fa-fw fa-shopping-bag"></i><span>Transaksi</span></a></li>-->
-<!--                        <li><a href="?controller=user&action=showProfilePenjual"><i class="fa fa-fw fa-user-circle"></i><span>Profile</span></a></li>-->
+            <li><a href="?controller=user&action=showProfilePenjual"><i class="fa fa-fw fa-user-circle"></i><span>Profile</span></a>
+            </li>
         </ul>
     </div>
     <div id="main-panel">
@@ -63,32 +61,34 @@
         <div id="content">
             <div class="container-fluid">
                 <div class="row">
-                    <div class="col-xs-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Lipstick</h3>
-                            </div>
-                            <div class="panel-body">
-                                <h5>Pembeli</h5>
-                                <h5>Harga</h5>
-                                <h5>Jumlah</h5>
-                                <h5>Status</h5>
+                    <?php
+                    foreach ($list as $item) {
+                        ?>
+                        <div class="col-xs-12">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"><?=$item['nama_produk']?></h3>
+                                </div>
+                                <div class="panel-body">
+                                    <h5>Nama Pembeli : <?=$item['pembeli']?></h5>
+                                    <h5>Alamat : <?=$item['alamat']?></h5>
+                                    <h5>Tanggal : <?=$item['tanggal']?></h5>
+                                    <h5>Total harga : Rp. <?=number_format($item['total_harga'],0,".",".")?></h5>
+                                    <h5>Jumlah : <?=$item['jumlah']?></h5>
+                                    <?php
+                                    if ($item['verif'] == 0){
+                                        $status = "Belum Lunas";
+                                    } else {
+                                        $status = "Lunas";
+                                    }
+                                    ?>
+                                    <h5>Status : <?=$status?></h5>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xs-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Lipstick</h3>
-                            </div>
-                            <div class="panel-body">
-                                <h5>Pembeli</h5>
-                                <h5>Harga</h5>
-                                <h5>Jumlah</h5>
-                                <h5>Status</h5>
-                            </div>
-                        </div>
-                    </div>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>

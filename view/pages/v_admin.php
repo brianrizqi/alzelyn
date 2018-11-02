@@ -27,8 +27,8 @@
             <div class="sidebar-avatar-text">Admin</div>
         </div>
         <ul class="sidebar-nav">
-            <li class="active"><a href="v_admin.php"><i class="fa fa-fw fa-home"></i><span>Home</span></a></li>
-            <li><a href="v_admin_verif.php"><i class="fa fa-fw fa-shopping-bag"></i><span>Transaksi</span></a></li>
+            <li class="active"><a href="?controller=home&action=homeAdmin"><i class="fa fa-fw fa-home"></i><span>Home</span></a></li>
+            <li><a href="?controller=transaksi&action=showTransaksiAdmin"><i class="fa fa-fw fa-shopping-bag"></i><span>Transaksi</span></a></li>
         </ul>
     </div>
     <div id="main-panel">

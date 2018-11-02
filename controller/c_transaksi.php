@@ -8,9 +8,41 @@
 
 class TransaksiController
 {
+    public function showTransaksiAdmin()
+    {
+        if (isset($_SESSION['user'])) {
+            $list = Transaksi::showTransaksiAdmin();
+            require_once('view/pages/v_admin_verif.php');
+        } else {
+            header("location: index.php?controller=login&action=login");
+        }
+    }
+
+    public function hapusTransaksiAdmin()
+    {
+        if (isset($_SESSION['user'])) {
+            $order = Transaksi::hapusTransaksi($_GET['id_order']);
+            header("location: index.php?controller=transaksi&action=showTransaksiAdmin");
+        } else {
+            header("location: index.php?controller=login&action=login");
+        }
+    }
+
+    public function detailTransaksiAdmin()
+    {
+        if (isset($_SESSION['user'])) {
+            $list = Transaksi::detailTransaksiAdmin($_GET['id_order']);
+            $bukti = Transaksi::detailBuktiAdmin($_GET['id_order']);
+            require_once('view/pages/v_admin_detail_verif.php');
+        } else {
+            header("location: index.php?controller=login&action=login");
+        }
+    }
+
     public function showTransaksiPenjual()
     {
         if (isset($_SESSION['user'])) {
+            $list = Transaksi::showTransaksiPenjual($_SESSION['id_user']);
             require_once('view/pages/v_penjual_transaksi.php');
         } else {
             header("location: index.php?controller=login&action=login");
@@ -54,9 +86,19 @@ class TransaksiController
             $gambar = date('dmYHis') . $foto;
             $path = "bukti/" . $gambar;
             if (move_uploaded_file($tmp, $path)) {
-                $produk = Transaksi::uploadBukti($gambar,$_POST['id_order']);
+                $produk = Transaksi::uploadBukti($gambar, $_POST['id_order']);
                 header("location: index.php?controller=transaksi&action=showTransaksiPembeli");
             }
+        } else {
+            header("location: index.php?controller=login&action=login");
+        }
+    }
+
+    public function verifAdmin()
+    {
+        if (isset($_SESSION['user'])) {
+            $list = Transaksi::verifAdmin($_GET['id_order']);
+            header("location: index.php?controller=transaksi&action=showTransaksiAdmin");
         } else {
             header("location: index.php?controller=login&action=login");
         }

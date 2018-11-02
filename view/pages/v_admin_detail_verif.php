@@ -2,9 +2,10 @@
 /**
  * Created by PhpStorm.
  * User: Brian R
- * Date: 20/10/2018
- * Time: 7:24
+ * Date: 02/11/2018
+ * Time: 20:41
  */
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -57,47 +58,62 @@
         <div id="content">
             <div class="container-fluid">
                 <div class="row">
-                    <?php
-                    foreach ($list as $item) {
-                        ?>
-                        <div class="col-xs-12">
-                            <div class="panel panel-default">
-                                <div class="panel-body">
-                                    <h5>Nama : <?= $item['nama'] ?></h5>
-                                    <h5>Tanggal : <?= $item['tanggal'] ?></h5>
+                    <div class="col-md-3">
+
+                    </div>
+                    <div class="col-md-6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading" style="background-color: #1daf9c;">
+                            </div>
+                            <div class="panel-body">
+                                <center>
                                     <?php
-                                    if ($item['verif'] == 0) {
-                                        $status = "Belum Lunas";
-                                    } else {
-                                        $status = "Lunas";
-                                    }
-                                    if ($item['bukti'] == NULL) {
-                                        $bukti = "Belum Upload";
-                                    } else {
-                                        $bukti = "Sudah Upload";
+                                    foreach ($bukti as $item) {
+                                        ?>
+                                        <img src="bukti/<?= $item['bukti'] ?>"
+                                             style="height: 250px; width: 100%;">
+                                        <?php
                                     }
                                     ?>
-                                    <h5>Bukti : <?= $bukti ?></h5>
-                                    <h5>Status : <?= $status ?></h5>
-                                </div>
-                                <div class="panel-body">
-                                    <div style="position: absolute; margin-top: -30px; right: 50px;">
-                                        <a href="?controller=transaksi&action=verifAdmin&id_order=<?= $item['id_order'] ?>">
-                                            <button class="btn btn-success" data-class="">Verif</button>
-                                        </a>
-                                        <a href="?controller=transaksi&action=detailTransaksiAdmin&id_order=<?= $item['id_order'] ?>">
-                                            <button class="btn btn-primary" data-class="floyd-purple">Detail</button>
-                                        </a>
-                                        <a href="?controller=transaksi&action=hapusTransaksiAdmin&id_order=<?= $item['id_order'] ?>">
-                                            <button class="btn btn-danger" data-class="floyd-red">Delete</button>
-                                        </a>
-                                    </div>
-                                </div>
+                                </center>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama Produk</th>
+                            <th>Tanggal</th>
+                            <th>Alamat</th>
+                            <th>Jumlah</th>
+                            <th>Total Harga</th>
+                        </tr>
+                        </thead>
                         <?php
-                    }
-                    ?>
+                        $no = 1;
+                        $total = 0;
+                        foreach ($list as $item) {
+                            ?>
+                            <tbody>
+                            <tr>
+                                <td><?=$no?></td>
+                                <td><?= $item['nama_produk'] ?></td>
+                                <td><?= $item['tanggal'] ?></td>
+                                <td><?= $item['alamat'] ?></td>
+                                <td><?= $item['jumlah'] ?></td>
+                                <td>Rp. <?= number_format($item['total_harga'] ,0,".",".")?></td>
+                            </tr>
+                            </tbody>
+                            <?php
+                            $total += $item['total_harga'];
+                            $no++;
+                        }
+                        ?>
+                    </table>
+                    <h3>Total Harga : Rp.<?=number_format($total,0,".",".")?></h3>
                 </div>
             </div>
         </div>
