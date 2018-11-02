@@ -2,15 +2,16 @@
 /**
  * Created by PhpStorm.
  * User: Brian R
- * Date: 20/10/2018
- * Time: 7:21
+ * Date: 19/10/2018
+ * Time: 10:43
  */
 ?>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>brand</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Produk</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="resources/css/styles.css">
     <link rel="stylesheet" href="resources/css/Mockup-MacBook-Pro.css">
@@ -67,71 +68,38 @@
         </ul>
     </div>
 </nav>
+
+
 <div class="container">
     <div class="row">
+        <div class="col-md-2">
+
+        </div>
         <?php
         foreach ($list as $item) {
             ?>
-            <div class="col-md-7 col-md-offset-2">
-                <form class="form-horizontal custom-form" method="post">
-                    <input type="hidden" name="controller" value="user">
-                    <input type="hidden" name="action" value="editPembeli">
-                    <div class="form-group">
-                        <div class="col-sm-4 label-column">
-                            <label class="control-label">Username </label>
-                        </div>
-                        <div class="col-sm-6 input-column">
-                            <input class="form-control" type="text" name="username" value="<?=$item['username']?>" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-4 label-column">
-                            <label class="control-label">Name </label>
-                        </div>
-                        <div class="col-sm-6 input-column">
-                            <input class="form-control" type="text" name="nama" value="<?=$item['nama']?>" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-4 label-column">
-                            <label class="control-label">Email </label>
-                        </div>
-                        <div class="col-sm-6 input-column">
-                            <input class="form-control" type="email" name="email" value="<?=$item['email']?>" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-4 label-column">
-                            <label class="control-label">Phone </label>
-                        </div>
-                        <div class="col-sm-6 input-column">
-                            <input class="form-control" type="number" name="no_tlp" value="<?=$item['no_tlp']?>" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-4 label-column">
-                            <label class="control-label">Address </label>
-                        </div>
-                        <div class="col-sm-6 input-column">
-                            <input class="form-control" type="text" name="alamat" value="<?=$item['alamat']?>" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-sm-4 label-column">
-                            <label class="control-label">Password </label>
-                        </div>
-                        <div class="col-sm-6 input-column">
-                            <input class="form-control" type="password" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <input type="submit" class="btn btn-primary" value="Update">
-                    </div>
+            <div class="col-md-8">
+                <center>
+                <img src="gambar/<?=$item['gambar']?>" style="width: 100%">
+                <h2><?=$item['nama_produk']?></h2>
+                <h4>Stok : <?=$item['stok']?></h4>
+                <h4>Harga Rp. <?=number_format($item['harga'],0,".",".")?></h4>
+                <form>
+                    <input type="hidden" name="controller" value="keranjang">
+                    <input type="hidden" name="action" value="tambahCart">
+                    <input name="id_produk" type="hidden" value="<?= $item['id_produk'] ?>">
+                    <input type="number"class="form-control" name="jumlah" placeholder="Jumlah" max="<?=$item['stok']?>" required>
+                    <br>
+                    <input type="submit" name="submit" value="Tambah" class="btn btn-primary form-control">
                 </form>
+                </center>
             </div>
             <?php
         }
         ?>
+        <div class="col-md-2">
+
+        </div>
     </div>
 </div>
 <footer class="container-fluid text-center">
@@ -142,6 +110,7 @@
         <button type="button" class="btn btn-danger">Subscribe</button>
     </form>
 </footer>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>

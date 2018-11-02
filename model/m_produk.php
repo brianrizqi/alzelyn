@@ -128,6 +128,23 @@ class Produk
         }
         return $list;
     }
+    public static function showDetailProduk($id_produk)
+    {
+        global $con;
+        $list = [];
+        $sql = "select * from produk where id_produk = $id_produk";
+        $result = $con->query($sql);
+        foreach ($result as $item) {
+            $list[] = array(
+                'id_produk' => $item['id_produk'],
+                'nama_produk' => $item['nama_produk'],
+                'harga' => $item['harga'],
+                'stok' => $item['stok'],
+                'gambar' => $item['gambar']
+            );
+        }
+        return $list;
+    }
 }
 
 ?>

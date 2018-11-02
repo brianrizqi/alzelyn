@@ -53,8 +53,8 @@
             </form>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="v_pembeli_keranjang.php"><span class="glyphicon glyphicon-shopping-cart"></span> Keranjang</a></li>
-                <li><a href="v_pembeli_transaksi.php"><span class="glyphicon glyphicon-paperclip"></span> Riwayat</a></li>
+                <li><a href="?controller=keranjang&action=showCartPembeli"><span class="glyphicon glyphicon-shopping-cart"></span> Keranjang</a></li>
+                <li><a href="?controller=transaksi&action=showTransaksiPembeli"><span class="glyphicon glyphicon-paperclip"></span> Riwayat</a></li>
                 <li>
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <span class="glyphicon glyphicon-user"></span>

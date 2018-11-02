@@ -90,6 +90,16 @@ class ProdukController
             header("location: index.php?controller=login&action=login");
         }
     }
+
+    public function showDetailProduk()
+    {
+        if (isset($_SESSION['user'])) {
+            $list = Produk::showDetailProduk($_GET['id_produk']);
+            require_once('view/pages/v_pembeli_detail_produk.php');
+        } else {
+            header("location: index.php?controller=login&action=login");
+        }
+    }
 }
 
 ?>

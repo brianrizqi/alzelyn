@@ -2,16 +2,17 @@
 /**
  * Created by PhpStorm.
  * User: Brian R
- * Date: 19/10/2018
- * Time: 10:43
+ * Date: 01/11/2018
+ * Time: 23:12
  */
+
 ?>
+
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Produk</title>
+    <title>brand</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="resources/css/styles.css">
     <link rel="stylesheet" href="resources/css/Mockup-MacBook-Pro.css">
@@ -39,8 +40,10 @@
 
             <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Other </a>
                 <ul class="dropdown-menu" role="menu">
-                    <li role="presentation"><a href="?controller=produk&action=showProdukPembeli&kategori=sponge">Sponge </a></li>
-                    <li role="presentation"><a href="?controller=produk&action=showProdukPembeli&kategori=brush">Brush </a></li>
+                    <li role="presentation"><a
+                                href="?controller=produk&action=showProdukPembeli&kategori=sponge">Sponge </a></li>
+                    <li role="presentation"><a
+                                href="?controller=produk&action=showProdukPembeli&kategori=brush">Brush </a></li>
                 </ul>
             </li>
 
@@ -52,12 +55,14 @@
             </form>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="?controller=keranjang&action=showCartPembeli"><span class="glyphicon glyphicon-shopping-cart"></span> Keranjang</a></li>
-                <li><a href="?controller=transaksi&action=showTransaksiPembeli"><span class="glyphicon glyphicon-paperclip"></span> Riwayat</a></li>
+                <li><a href="?controller=keranjang&action=showCartPembeli"><span
+                                class="glyphicon glyphicon-shopping-cart"></span> Keranjang</a></li>
+                <li><a href="?controller=transaksi&action=showTransaksiPembeli"><span
+                                class="glyphicon glyphicon-paperclip"></span> Riwayat</a></li>
                 <li>
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <span class="glyphicon glyphicon-user"></span>
-                        <?=$_SESSION['user']?>
+                        <?= $_SESSION['user'] ?>
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="?controller=user&action=showProfilePembeli">Profile</a></li>
@@ -70,38 +75,48 @@
 </nav>
 
 
-<div class="container">
-    <div class="row">
-        <?php
-        foreach ($list as $item) {
-            ?>
-            <div class="col-md-4">
-                <div class="container">
-                    <img src="gambar/<?= $item['gambar'] ?>" width="" height="200px"><br>
+<div id="judul">
+    - Riwayat Belanja anda -<br><br>
+</div>
 
-                    <div class="container">
-                        <div id="produk">
-                            <h2><?= $item['nama_produk'] ?></h2>
-                            <h3>Stok : <?= $item['stok'] ?></h3>
-                            <div id="harga">
-                                <h2>Rp <?= number_format($item['harga'], 0, ".", ".") ?></h2>
-                            </div>
-                        </div>
-                        <a href="?controller=produk&action=showDetailProduk&id_produk=<?=$item['id_produk']?>">
-                            <button type="submit" class="btn btn-basic">ADD TO
-                                <img src="resources/images/cart1.png">
-                            </button>
-                        </a>
-                    </div>
-                </div>
-            </div>
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-condensed">
+            <thead>
+            <tr>
+                <th>No</th>
+                <th>Nama Produk</th>
+                <th>Jumlah</th>
+                <th>Total Harga</th>
+            </tr>
+            </thead>
+            <tbody>
             <?php
-        }
-        ?>
+            $no = 1;
+//            $total = 0;
+            foreach ($list as $item) {
+            ?>
+            <tbody>
+            <tr>
+                <td><?= $no ?></td>
+                <td><?= $item['nama_produk'] ?></td>
+                <td><?= "Rp. " . number_format($item['total_harga'], 0, ".", ".") ?></td>
+                <td><?= $item['jumlah'] ?></td>
+            </tr>
+            </tbody>
+            <?php
+//            $no++;
+//            $total += $item['total_harga'];
+            }
+            ?>
+            </tbody>
+        </table>
+
     </div>
 </div>
+
+
 <footer class="container-fluid text-center">
-    <br><br><br><br><br>
     <p>Online Store </p>
     <form class="form-inline">Get deals:
         <input type="email" class="form-control" size="50" placeholder="Email Address">
