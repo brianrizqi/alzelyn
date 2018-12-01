@@ -13,12 +13,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>login_register_prifilan</title>
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cookie">
     <link rel="stylesheet" href="resources/css/untitled.css">
     <link rel="stylesheet" href="resources/css/Google-Style-Login.css">
     <link rel="stylesheet" href="resources/css/Pretty-Registration-Form.css">
     <link rel="stylesheet" href="resources/css/Pretty-Header.css">
+
 </head>
 
 <body>
@@ -78,6 +80,37 @@
             </div>
             <div class="form-group">
                 <div class="col-sm-4 label-column">
+                    <label class="control-label" for="dropdown-input-field">Provinsi </label>
+                </div>
+                <div class="col-sm-4 input-column">
+                    <div class="dropdown">
+                        <select id="provinsi" class="btn btn-default dropdown-toggle" onchange="pilihkota()">
+                            <option value="">Pilih Provinsi</option>
+                            <?php
+                            foreach ($list as $item) {
+                                ?>
+                                <option value="<?= $item['id_provinsi'] ?>"><?= $item['provinsi'] ?></option>
+                                <?php
+                            }
+                            ?>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-4 label-column">
+                    <label class="control-label" for="dropdown-input-field">Kabupaten/Kota </label>
+                </div>
+                <div class="col-sm-4 input-column">
+                    <div class="dropdown" id="kota">
+                        <select name="kota" class="btn btn-default dropdown-toggle">
+                            <option value="">Pilih Kota</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-4 label-column">
                     <label class="control-label" for="dropdown-input-field">Role </label>
                 </div>
                 <div class="col-sm-4 input-column">
@@ -97,8 +130,14 @@
         </form>
     </div>
 </div>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 
+<script type="text/javascript">
+    function pilihkota() {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET","kota.php?id="+document.getElementById("provinsi").value,false);
+        xmlhttp.send(null);
+        document.getElementById("kota").innerHTML=xmlhttp.responseText;
+    }
+</script>
 </html>

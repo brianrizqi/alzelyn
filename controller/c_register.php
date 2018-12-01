@@ -10,12 +10,13 @@ class RegisterController
 {
     public function register()
     {
+        $list = Register::kota();
         require_once('view/pages/v_register.php');
     }
 
     public function createUser()
     {
-        $list = Register::createUser($_POST['nama'], $_POST['email'], $_POST['alamat'],
+        $list = Register::createUser($_POST['nama'], $_POST['email'], $_POST['alamat'],$_POST['kota'],
             $_POST['no_telp'], $_POST['username'], md5($_POST['password']), $_POST['level']);
         header("location: index.php?controller=login&action=login");
     }

@@ -32,6 +32,7 @@ function call($controller, $action)
         case 'register':
             $controller = new RegisterController();
             require_once ('model/m_register.php');
+//            require_once ('kota.php');
             break;
         case 'transaksi':
             $controller = new TransaksiController();

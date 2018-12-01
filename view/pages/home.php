@@ -26,29 +26,12 @@
     <div class="container-fluid">
         <ul class="nav nav-tabs">
             <li class="dropdown">
-                <a href="?controller=produk&action=showProduk&kategori=skincare">Skincare </a>
+                <a href="?controller=home&action=home">Home </a>
             </li>
 
             <li class="dropdown">
-                <a href="?controller=produk&action=showProduk&kategori=makeup">Makeup </a>
+                <a href="?controller=produk&action=showProduk">Produk </a>
             </li>
-            <li class="dropdown">
-                <a href="?controller=produk&action=showProduk&kategori=hairbody">Hair &amp; Body</a>
-            </li>
-
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Other </a>
-                <ul class="dropdown-menu" role="menu">
-                    <li role="presentation"><a href="?controller=produk&action=showProduk&kategori=sponge">Sponge </a></li>
-                    <li role="presentation"><a href="?controller=produk&action=showProduk&kategori=brush">Brush </a></li>
-                </ul>
-            </li>
-
-            <form class="navbar-form navbar-left" action="/action_page.php">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-info">Submit</button>
-            </form>
 
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="?controller=register&action=register"><span class="glyphicon glyphicon-user"></span> Sign
@@ -60,13 +43,13 @@
     </div>
 </nav>
 
-<div id="promo">
-    <div class="jumbotron">
-        <h1 class="text-center">BEST SELLER</h1>
-        <p class="text-center">Dapatkan produk terbaik dari kami sekarang juga</p>
-        <p class="text-center"><a class="btn btn-danger" role="button" href="#">Beli Sekarang</a></p>
-    </div>
-</div>
+<!--<div id="promo">-->
+<!--    <div class="jumbotron">-->
+<!--        <h1 class="text-center">BEST SELLER</h1>-->
+<!--        <p class="text-center">Dapatkan produk terbaik dari kami sekarang juga</p>-->
+<!--        <p class="text-center"><a class="btn btn-danger" role="button" href="#">Beli Sekarang</a></p>-->
+<!--    </div>-->
+<!--</div>-->
 <div class="carousel slide" data-ride="carousel" id="carousel-1">
     <div class="carousel-inner" role="listbox">
         <div class="item active"><img src="resources/images/fixdiskoni.jpg" alt="Slide Image"></div>

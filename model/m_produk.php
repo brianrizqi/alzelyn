@@ -111,11 +111,11 @@ class Produk
         return $result;
     }
 
-    public static function showProduk($kategori)
+    public static function showProduk()
     {
         global $con;
         $list = [];
-        $sql = "select * from produk where kategori = '$kategori'";
+        $sql = "select * from produk where stok > 0";
         $result = $con->query($sql);
         foreach ($result as $item) {
             $list[] = array(

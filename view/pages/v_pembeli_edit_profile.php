@@ -26,29 +26,12 @@
     <div class="container-fluid">
         <ul class="nav nav-tabs">
             <li class="dropdown">
-                <a href="?controller=produk&action=showProdukPembeli&kategori=skincare">Skincare </a>
+                <a href="?controller=home&action=homePembeli">Home </a>
             </li>
 
             <li class="dropdown">
-                <a href="?controller=produk&action=showProdukPembeli&kategori=makeup">Makeup </a>
+                <a href="?controller=produk&action=showProdukPembeli">Produk </a>
             </li>
-            <li class="dropdown">
-                <a href="?controller=produk&action=showProdukPembeli&kategori=hairbody">Hair &amp; Body</a>
-            </li>
-
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">Other </a>
-                <ul class="dropdown-menu" role="menu">
-                    <li role="presentation"><a href="?controller=produk&action=showProdukPembeli&kategori=sponge">Sponge </a></li>
-                    <li role="presentation"><a href="?controller=produk&action=showProdukPembeli&kategori=brush">Brush </a></li>
-                </ul>
-            </li>
-
-            <form class="navbar-form navbar-left" action="/action_page.php">
-                <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Search">
-                </div>
-                <button type="submit" class="btn btn-info">Submit</button>
-            </form>
 
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="?controller=keranjang&action=showCartPembeli"><span class="glyphicon glyphicon-shopping-cart"></span> Keranjang</a></li>

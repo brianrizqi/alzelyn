@@ -10,10 +10,25 @@ require_once 'init.php';
 
 class Register
 {
-    public static function createUser($nama,$email,$alamat,$no_tlp,$username,$password,$level)
+    public static function kota()
     {
         global $con;
-        $sql = "call tambah_user('$nama','$email','$alamat','$no_tlp','$username','$password',$level)";
+        $sql = "select * from provinsi";
+        $result = $con->query($sql);
+        $list = [];
+        foreach ($result as $item) {
+            $list[] = array(
+                'id_provinsi' => $item['id_provinsi'],
+                'provinsi' => $item['provinsi']
+            );
+        }
+        return $list;
+    }
+
+    public static function createUser($nama, $email, $alamat,$id_kota ,$no_tlp, $username, $password, $level)
+    {
+        global $con;
+        $sql = "call tambah_user('$nama','$email','$alamat','$no_tlp','$username','$password',$level,$id_kota)";
         $result = $con->query($sql);
         return $result;
     }
