@@ -77,14 +77,16 @@ class ProdukController
 
     public function showProduk()
     {
-        $list = Produk::showProduk();
+        $page = Produk::page();
+        $list = Produk::showProduk($_GET['page']);
         require_once('view/pages/v_produk.php');
     }
 
     public function showProdukPembeli()
     {
         if (isset($_SESSION['user'])) {
-            $list = Produk::showProduk();
+            $page = Produk::page();
+            $list = Produk::showProduk($_GET['page']);
             require_once('view/pages/v_pembeli_produk.php');
         } else {
             header("location: index.php?controller=login&action=login");

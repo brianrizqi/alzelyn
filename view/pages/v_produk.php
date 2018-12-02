@@ -33,7 +33,7 @@
             </li>
 
             <li class="dropdown">
-                <a href="?controller=produk&action=showProduk">Produk </a>
+                <a href="?controller=produk&action=showProduk&page=1">Produk </a>
             </li>
 
             <ul class="nav navbar-nav navbar-right">
@@ -59,6 +59,7 @@
 
                 <div id="produk">
                     <h2><?= $item['nama_produk'] ?></h2>
+                    <h3><?=$item['kategori']?></h3>
                     <h3>Stok : <?= $item['stok'] ?></h3>
                     <div id="harga">
                         <h2>Rp <?= number_format($item['harga'], 0, ".", ".") ?></h2>
@@ -99,6 +100,27 @@
             <?php
         }
         ?>
+    </div>
+    <br><br><br><br><br>
+    <div class="row">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+            <table>
+                <tr>
+                    <td width="70px">Page</td>
+                    <?php
+                    for ($i = 1; $i<=$page; $i++) {
+                        ?>
+                        <td width="50px"><a href="?controller=produk&action=showProduk&page=<?=$i?>"><?=$i?></a></td>
+
+                        <?php
+                    }
+                    ?>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
 <footer class="container-fluid text-center">

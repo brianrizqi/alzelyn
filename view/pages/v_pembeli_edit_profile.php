@@ -30,7 +30,7 @@
             </li>
 
             <li class="dropdown">
-                <a href="?controller=produk&action=showProdukPembeli">Produk </a>
+                <a href="?controller=produk&action=showProdukPembeli&page=1">Produk </a>
             </li>
 
             <ul class="nav navbar-nav navbar-right">

@@ -111,11 +111,20 @@ class Produk
         return $result;
     }
 
-    public static function showProduk()
+    public static function page(){
+        global $con;
+        $count = "SELECT COUNT(*) as jum FROM `produk` WHERE stok > 0";
+        $res = $con->query($count)->fetch_assoc();
+        $jum = ceil($res['jum']/5);
+        return $jum;
+    }
+    public static function showProduk($page)
     {
         global $con;
+        $akhir = $page * 5;
+        $awal = $akhir - 5;
         $list = [];
-        $sql = "select * from produk where stok > 0";
+        $sql = "select * from produk where stok > 0 order by id_produk desc limit $awal,$akhir";
         $result = $con->query($sql);
         foreach ($result as $item) {
             $list[] = array(
@@ -123,7 +132,8 @@ class Produk
                 'nama_produk' => $item['nama_produk'],
                 'harga' => $item['harga'],
                 'stok' => $item['stok'],
-                'gambar' => $item['gambar']
+                'gambar' => $item['gambar'],
+                'kategori' =>$item['kategori'],
             );
         }
         return $list;
@@ -140,7 +150,8 @@ class Produk
                 'nama_produk' => $item['nama_produk'],
                 'harga' => $item['harga'],
                 'stok' => $item['stok'],
-                'gambar' => $item['gambar']
+                'gambar' => $item['gambar'],
+                'kategori' =>$item['kategori']
             );
         }
         return $list;

@@ -31,16 +31,18 @@
             </li>
 
             <li class="dropdown">
-                <a href="?controller=produk&action=showProdukPembeli">Produk </a>
+                <a href="?controller=produk&action=showProdukPembeli&page=1">Produk </a>
             </li>
 
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="?controller=keranjang&action=showCartPembeli"><span class="glyphicon glyphicon-shopping-cart"></span> Keranjang</a></li>
-                <li><a href="?controller=transaksi&action=showTransaksiPembeli"><span class="glyphicon glyphicon-paperclip"></span> Riwayat</a></li>
+                <li><a href="?controller=keranjang&action=showCartPembeli"><span
+                                class="glyphicon glyphicon-shopping-cart"></span> Keranjang</a></li>
+                <li><a href="?controller=transaksi&action=showTransaksiPembeli"><span
+                                class="glyphicon glyphicon-paperclip"></span> Riwayat</a></li>
                 <li>
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <span class="glyphicon glyphicon-user"></span>
-                        <?=$_SESSION['user']?>
+                        <?= $_SESSION['user'] ?>
                         <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="?controller=user&action=showProfilePembeli">Profile</a></li>
@@ -59,28 +61,48 @@
         foreach ($list as $item) {
             ?>
             <div class="col-md-4">
-                <div class="container">
-                    <img src="gambar/<?= $item['gambar'] ?>" width="" height="200px"><br>
+                <img src="gambar/<?= $item['gambar'] ?>" width="" height="200px"><br>
 
-                    <div class="container">
-                        <div id="produk">
-                            <h2><?= $item['nama_produk'] ?></h2>
-                            <h3>Stok : <?= $item['stok'] ?></h3>
-                            <div id="harga">
-                                <h2>Rp <?= number_format($item['harga'], 0, ".", ".") ?></h2>
-                            </div>
-                        </div>
-                        <a href="?controller=produk&action=showDetailProduk&id_produk=<?=$item['id_produk']?>">
-                            <button type="submit" class="btn btn-basic">ADD TO
-                                <img src="resources/images/cart1.png">
-                            </button>
-                        </a>
+
+                <div id="produk">
+                    <h2><?= $item['nama_produk'] ?></h2>
+                    <h3><?= $item['kategori'] ?></h3>
+                    <h3>Stok : <?= $item['stok'] ?></h3>
+                    <div id="harga">
+                        <h2>Rp <?= number_format($item['harga'], 0, ".", ".") ?></h2>
                     </div>
                 </div>
+                <a href="?controller=produk&action=showDetailProduk&id_produk=<?= $item['id_produk'] ?>">
+                    <button type="submit" class="btn btn-basic">ADD TO
+                        <img src="resources/images/cart1.png">
+                    </button>
+                </a>
             </div>
             <?php
         }
         ?>
+    </div>
+    <br><br><br><br><br>
+    <div class="row">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4">
+            <table>
+                <tr>
+                    <td width="70px">Page</td>
+                    <?php
+                    for ($i = 1; $i <= $page; $i++) {
+                        ?>
+                        <td width="50px"><a
+                                    href="?controller=produk&action=showProdukPembeli&page=<?= $i ?>"><?= $i ?></a></td>
+
+                        <?php
+                    }
+                    ?>
+                </tr>
+            </table>
+        </div>
     </div>
 </div>
 <footer class="container-fluid text-center">

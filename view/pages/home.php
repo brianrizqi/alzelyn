@@ -30,7 +30,7 @@
             </li>
 
             <li class="dropdown">
-                <a href="?controller=produk&action=showProduk">Produk </a>
+                <a href="?controller=produk&action=showProduk&page=1">Produk </a>
             </li>
 
             <ul class="nav navbar-nav navbar-right">
@@ -43,13 +43,7 @@
     </div>
 </nav>
 
-<!--<div id="promo">-->
-<!--    <div class="jumbotron">-->
-<!--        <h1 class="text-center">BEST SELLER</h1>-->
-<!--        <p class="text-center">Dapatkan produk terbaik dari kami sekarang juga</p>-->
-<!--        <p class="text-center"><a class="btn btn-danger" role="button" href="#">Beli Sekarang</a></p>-->
-<!--    </div>-->
-<!--</div>-->
+
 <div class="carousel slide" data-ride="carousel" id="carousel-1">
     <div class="carousel-inner" role="listbox">
         <div class="item active"><img src="resources/images/fixdiskoni.jpg" alt="Slide Image"></div>
