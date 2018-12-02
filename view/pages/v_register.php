@@ -26,7 +26,7 @@
 <body>
 <div class="row register-form">
     <div class="col-md-8 col-md-offset-2">
-        <form class="form-horizontal custom-form" method="post">
+        <form class="form-horizontal custom-form" method="post" name="formRegis" onsubmit="return validateForm()">
             <input type="hidden" name="controller" value="register">
             <input type="hidden" name="action" value="createUser">
             <h1>Register Form</h1>
@@ -138,6 +138,33 @@
         xmlhttp.open("GET","kota.php?id="+document.getElementById("provinsi").value,false);
         xmlhttp.send(null);
         document.getElementById("kota").innerHTML=xmlhttp.responseText;
+    }
+    function validateForm() {
+        var username = document.forms["formRegis"]["username"].value;
+        var password = document.forms["formRegis"]["password"].value;
+        var nama = document.forms["formRegis"]["nama"].value;
+        var no_telp = document.forms["formRegis"]["no_telp"].value;
+        var alamat = document.forms["formRegis"]["alamat"].value;
+        var email = document.forms["formRegis"]["email"].value;
+        if (username == "") {
+            alert("Username Kosong");
+            return false;
+        } else if (password == ""){
+            alert("Password Kosong");
+            return false;
+        } else if (nama == ""){
+            alert("Nama Kosong");
+            return false;
+        } else if (no_telp == ""){
+            alert("No Telp Kosong");
+            return false;
+        } else if (alamat == ""){
+            alert("Alamat Kosong");
+            return false;
+        } else if (email =="") {
+            alert("email Kosong");
+            return false;
+        }
     }
 </script>
 </html>
