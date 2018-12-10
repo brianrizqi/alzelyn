@@ -28,7 +28,8 @@ class Register
     public static function createUser($nama, $email, $alamat,$id_kota ,$no_tlp, $username, $password, $level)
     {
         global $con;
-        $sql = "call tambah_user('$nama','$email','$alamat','$no_tlp','$username','$password',$level,$id_kota)";
+        $sql = "INSERT INTO `users`(`nama`, `email`, `alamat`, `id_kota`, `no_tlp`, `username`, `password`, `level`) 
+VALUES ('$nama','$email','$alamat',$id_kota,'$no_tlp','$username','$password',$level)";
         $result = $con->query($sql);
         return $result;
     }

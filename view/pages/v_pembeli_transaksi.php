@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="resources/css/styles.css">
     <link rel="stylesheet" href="resources/css/Mockup-MacBook-Pro.css">
     <link rel="stylesheet" href="resources/css/id.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -78,14 +80,16 @@
             foreach ($list as $item) {
                 ?>
                 <tr>
-                    <td><?=$no?></td>
+                    <td><?= $no ?></td>
                     <td hidden><?= $item['id_order'] ?></td>
-                    <td><?=$item['tanggal']?></td>
+                    <td><?= $item['tanggal'] ?></td>
                     <?php
                     if ($item['verif'] == 0) {
                         $status = "Belum bayar";
-                    } else {
+                    } else if ($item['verif'] == 1) {
                         $status = "Lunas";
+                    } else {
+                        $status = "Ditolak";
                     }
                     if ($item['bukti'] == NULL) {
                         $bukti = "Belum Upload";
@@ -93,27 +97,48 @@
                         $bukti = "Sudah Upload";
                     }
                     ?>
-                    <td><?=$status?></td>
-                    <td><?=$bukti?></td>
+                    <td><?= $status ?></td>
+                    <td><?= $bukti ?></td>
                     <td>
-                        <a href="?controller=transaksi&action=showDetailTransaksiPembeli&id_order=<?=$item['id_order']?>" class="btn btn-primary">
+                        <a href="?controller=transaksi&action=showDetailTransaksiPembeli&id_order=<?= $item['id_order'] ?>"
+                           class="btn btn-primary">
                             Detail
                         </a>
-                        <a href="?controller=transaksi&action=showUploadBukti&id_order=<?=$item['id_order']?>" class="btn btn-success">
+                        <a href="?controller=transaksi&action=showUploadBukti&id_order=<?= $item['id_order'] ?>"
+                           class="btn btn-success">
                             Upload
                         </a>
+                        <?php
+                        if ($status == "Ditolak") {
+                            ?>
+                            <button class="btn btn-danger" onclick="tampilTolak()">Tolak</button>
+                            <br><br>
+                            <form class="formTolak" id="formTolak">
+                                <p><?=$item['tolak']?></p>
+                            </form>
+
+                            <?php
+                        }
+                        ?>
                     </td>
                 </tr>
                 <?php
                 $no++;
             }
             ?>
+
             </tbody>
         </table>
 
     </div>
 </div>
+<script type="text/javascript">
+    $(".formTolak").hide();
 
+    function tampilTolak() {
+        $(".formTolak").show();
+    }
+</script>
 
 <footer class="container-fluid text-center">
     <p>Online Store </p>
@@ -123,8 +148,7 @@
     </form>
 </footer>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>

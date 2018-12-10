@@ -68,8 +68,10 @@
                                     <?php
                                     if ($item['verif'] == 0) {
                                         $status = "Belum Lunas";
-                                    } else {
+                                    } else if ($item['verif'] == 1) {
                                         $status = "Lunas";
+                                    } else {
+                                        $status = "Ditolak";
                                     }
                                     if ($item['bukti'] == NULL) {
                                         $bukti = "Belum Upload";
@@ -79,18 +81,36 @@
                                     ?>
                                     <h5>Bukti : <?= $bukti ?></h5>
                                     <h5>Status : <?= $status ?></h5>
+                                    <form name="formTolak" class="formTolak" method="POST">
+                                        <input type="hidden" name="controller" value="transaksi">
+                                        <input type="hidden" name="action" value="hapusTransaksiAdmin">
+                                        <input type="hidden" name="id_order" value="<?= $item['id_order'] ?>">
+                                        <input type="text" placeholder="Alasan tolak" name="tolak">
+                                        <input type="submit" class="btn btn-primary">
+                                    </form>
                                 </div>
                                 <div class="panel-body">
                                     <div style="position: absolute; margin-top: -30px; right: 50px;">
-                                        <a href="?controller=transaksi&action=verifAdmin&id_order=<?= $item['id_order'] ?>">
-                                            <button class="btn btn-success" data-class="">Verif</button>
-                                        </a>
                                         <a href="?controller=transaksi&action=detailTransaksiAdmin&id_order=<?= $item['id_order'] ?>">
                                             <button class="btn btn-primary" data-class="floyd-purple">Detail</button>
                                         </a>
-                                        <a href="?controller=transaksi&action=hapusTransaksiAdmin&id_order=<?= $item['id_order'] ?>">
-                                            <button class="btn btn-danger" data-class="floyd-red">Delete</button>
-                                        </a>
+                                        <!--                                                                                <a href="?controller=transaksi&action=hapusTransaksiAdmin&id_order=-->
+                                        <!--                                        -->
+                                        <?//= $item['id_order'] ?><!--">-->
+                                        <!--                                            <button class="btn btn-danger" data-class="floyd-red">Delete</button>-->
+                                        <!--                                        </a>-->
+                                        <?php
+                                        if ($status == "Belum Lunas") {
+                                            ?>
+                                            <a href="?controller=transaksi&action=verifAdmin&id_order=<?= $item['id_order'] ?>">
+                                                <button class="btn btn-success" data-class="">Verif</button>
+                                            </a>
+                                            <button onclick="tolak()" class="btn btn-danger" data-class="floyd-red">
+                                                Delete
+                                            </button>
+                                            <?php
+                                        }
+                                        ?>
                                     </div>
                                 </div>
                             </div>
@@ -103,6 +123,13 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    $(".formTolak").hide();
+
+    function tolak() {
+        $(".formTolak").show();
+    }
+</script>
 
 </body>
 </html>

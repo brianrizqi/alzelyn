@@ -42,7 +42,8 @@
                     <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                         <span class="glyphicon glyphicon-user"></span>
                         <?=$_SESSION['user']?>
-                        <span class="caret"></span></a>
+                        <span class="caret"></span>
+                    </a>
                         <ul class="dropdown-menu">
                             <li><a href="?controller=user&action=showProfilePembeli">Profile</a></li>
                             <li><a href="logout.php">Logout</a></li>
@@ -53,13 +54,6 @@
     </div>
 </nav>
 
-<div id="promo">
-    <div class="jumbotron">
-        <h1 class="text-center">BEST SELLER</h1>
-        <p class="text-center">Dapatkan produk terbaik dari kami sekarang juga</p>
-        <p class="text-center"><a class="btn btn-danger" role="button" href="#">Beli Sekarang</a></p>
-    </div>
-</div>
 <div class="carousel slide" data-ride="carousel" id="carousel-1">
     <div class="carousel-inner" role="listbox">
         <div class="item active"><img src="resources/images/fixdiskoni.jpg" alt="Slide Image"></div>

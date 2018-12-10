@@ -21,7 +21,7 @@ class TransaksiController
     public function hapusTransaksiAdmin()
     {
         if (isset($_SESSION['user'])) {
-            $order = Transaksi::hapusTransaksi($_GET['id_order']);
+            $order = Transaksi::hapusTransaksi($_POST['id_order'],$_POST['tolak']);
             header("location: index.php?controller=transaksi&action=showTransaksiAdmin");
         } else {
             header("location: index.php?controller=login&action=login");

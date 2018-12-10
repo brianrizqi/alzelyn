@@ -67,7 +67,7 @@
                     <label class="control-label" for="-pawssword-input-field">Phone </label>
                 </div>
                 <div class="col-sm-6 input-column">
-                    <input class="form-control" type="text" name="no_telp">
+                    <input class="form-control" type="number" name="no_telp">
                 </div>
             </div>
             <div class="form-group">
@@ -124,7 +124,8 @@
             </div>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox">I've read and accept the terms and conditions</label>
+                    <input type="checkbox" name="check" value="check">I've read and accept the terms and conditions
+                </label>
             </div>
             <input class="btn btn-default submit-button" type="submit" name="submit" value="Register">
         </form>
@@ -141,6 +142,7 @@
     }
     function validateForm() {
         var username = document.forms["formRegis"]["username"].value;
+        // var check = document.forms["formRegis"]["check"].value;
         var password = document.forms["formRegis"]["password"].value;
         var nama = document.forms["formRegis"]["nama"].value;
         var no_telp = document.forms["formRegis"]["no_telp"].value;

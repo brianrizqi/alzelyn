@@ -14,14 +14,15 @@ class Transaksi
     {
         global $con;
         $list = [];
-        $sql = "SELECT * from `order` where id_user=$id_user";
+        $sql = "SELECT * from `order` where id_user=$id_user order by id_order desc";
         $result = mysqli_query($con, $sql);
         foreach ($result as $item) {
             $list[] = array(
                 'id_order' => $item['id_order'],
                 'tanggal' => $item['tanggal'],
                 'verif' => $item['verif'],
-                'bukti' => $item['bukti']
+                'bukti' => $item['bukti'],
+                'tolak' => $item['tolak']
             );
         }
         return $list;
@@ -63,7 +64,7 @@ where dt.id_order = $id_order";
 		WHERE id_order=dp.id_order) as pembeli,(SELECT u.alamat FROM `order` o JOIN users u ON o.id_user=u.id_user 
 		WHERE id_order=dp.id_order) as alamat FROM detail_order dp
 		JOIN produk p on dp.id_produk=p.id_produk join users u ON p.id_user=u.id_user
-		WHERE p.id_user= $id_user";
+		WHERE p.id_user= $id_user order by dp.id_order desc";
         $result = $con->query($sql);
         foreach ($result as $item) {
             $list[] = array(
@@ -83,7 +84,7 @@ where dt.id_order = $id_order";
     {
         global $con;
         $sql = "SELECT id_order,u.nama,tanggal,verif,bukti from `order` t 
-		JOIN users u ON t.id_user=u.id_user";
+		JOIN users u ON t.id_user=u.id_user order by t.id_order desc";
         $result = $con->query($sql);
         $list = [];
         foreach ($result as $item) {
@@ -98,10 +99,11 @@ where dt.id_order = $id_order";
         return $list;
     }
 
-    public static function hapusTransaksi($id_order)
+    public static function hapusTransaksi($id_order,$tolak)
     {
         global $con;
-        $sql = "delete from `order` where id_order = $id_order";
+//        $sql = "delete from `order` where id_order = $id_order";
+        $sql = "update `order` set `verif` = 2, `tolak` = '$tolak' where id_order = $id_order";
         $result = $con->query($sql);
         return $result;
     }

@@ -16,6 +16,7 @@ class HomeController
     public function homeAdmin()
     {
         if (isset($_SESSION['user'])) {
+            $list = Home::statAdmin();
             require_once('view/pages/v_admin.php');
         } else {
             header('location:index.php?controller=login&action=login');
@@ -25,6 +26,7 @@ class HomeController
     public function homePenjual()
     {
         if (isset($_SESSION['user'])) {
+            $list = Home::statPenjual($_SESSION['id_user']);
             require_once('view/pages/v_penjual.php');
         } else {
             header('location:index.php?controller=login&action=login');
