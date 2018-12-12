@@ -142,12 +142,11 @@
     }
     function validateForm() {
         var username = document.forms["formRegis"]["username"].value;
-        // var check = document.forms["formRegis"]["check"].value;
         var password = document.forms["formRegis"]["password"].value;
         var nama = document.forms["formRegis"]["nama"].value;
+        var email = document.forms["formRegis"]["email"].value;
         var no_telp = document.forms["formRegis"]["no_telp"].value;
         var alamat = document.forms["formRegis"]["alamat"].value;
-        var email = document.forms["formRegis"]["email"].value;
         if (username == "") {
             alert("Username Kosong");
             return false;
@@ -157,14 +156,14 @@
         } else if (nama == ""){
             alert("Nama Kosong");
             return false;
-        } else if (no_telp == ""){
+        } else if (email =="") {
+            alert("email Kosong");
+            return false;
+        }else if (no_telp == ""){
             alert("No Telp Kosong");
             return false;
         } else if (alamat == ""){
             alert("Alamat Kosong");
-            return false;
-        } else if (email =="") {
-            alert("email Kosong");
             return false;
         }
     }

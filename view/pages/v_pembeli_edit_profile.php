@@ -104,7 +104,7 @@
                             <label class="control-label">Password </label>
                         </div>
                         <div class="col-sm-6 input-column">
-                            <input class="form-control" type="password" required>
+                            <input class="form-control" type="password" name="password" required>
                         </div>
                     </div>
                     <div class="form-group">

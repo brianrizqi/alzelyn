@@ -101,7 +101,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Password</label>
-                                            <input type="password" name="password" class="form-control" value="" required>
+                                            <input type="password" name="password" class="form-control" required>
                                         </div>
                                         <input type="submit" value="Ubah" class="btn btn-primary" name="ubah">
                                     </form>

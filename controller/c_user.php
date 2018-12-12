@@ -43,7 +43,7 @@ class UserController
     }
     public function editPembeli(){
         if (isset($_SESSION['user'])){
-            $list = User::editPembeli($_POST['nama'],$_POST['email'],$_POST['alamat'],$_POST['no_tlp'],
+            $list = User::editPenjual($_POST['nama'],$_POST['email'],$_POST['alamat'],$_POST['no_tlp'],
                 $_POST['username'],md5($_POST['password']),$_SESSION['id_user']);
             header("location: index.php?controller=user&action=showProfilePembeli");
         } else {

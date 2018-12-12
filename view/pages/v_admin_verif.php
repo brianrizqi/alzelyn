@@ -81,13 +81,19 @@
                                     ?>
                                     <h5>Bukti : <?= $bukti ?></h5>
                                     <h5>Status : <?= $status ?></h5>
-                                    <form name="formTolak" class="formTolak" method="POST">
-                                        <input type="hidden" name="controller" value="transaksi">
-                                        <input type="hidden" name="action" value="hapusTransaksiAdmin">
-                                        <input type="hidden" name="id_order" value="<?= $item['id_order'] ?>">
-                                        <input type="text" placeholder="Alasan tolak" name="tolak">
-                                        <input type="submit" class="btn btn-primary">
-                                    </form>
+                                    <?php
+                                    if ($status == "Belum Lunas") {
+                                        ?>
+                                        <form name="formTolak" class="formTolak" method="POST">
+                                            <input type="hidden" name="controller" value="transaksi">
+                                            <input type="hidden" name="action" value="hapusTransaksiAdmin">
+                                            <input type="hidden" name="id_order" value="<?= $item['id_order'] ?>">
+                                            <input type="text" placeholder="Alasan tolak" name="tolak">
+                                            <input type="submit" class="btn btn-primary">
+                                        </form>
+                                        <?php
+                                    }
+                                    ?>
                                 </div>
                                 <div class="panel-body">
                                     <div style="position: absolute; margin-top: -30px; right: 50px;">
@@ -106,7 +112,7 @@
                                                 <button class="btn btn-success" data-class="">Verif</button>
                                             </a>
                                             <button onclick="tolak()" class="btn btn-danger" data-class="floyd-red">
-                                                Delete
+                                                Tolak
                                             </button>
                                             <?php
                                         }

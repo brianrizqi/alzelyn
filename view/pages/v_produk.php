@@ -59,17 +59,19 @@
 
                 <div id="produk">
                     <h2><?= $item['nama_produk'] ?></h2>
-                    <h3><?=$item['kategori']?></h3>
+                    <h3><?= $item['kategori'] ?></h3>
                     <h3>Stok : <?= $item['stok'] ?></h3>
                     <div id="harga">
                         <h2>Rp <?= number_format($item['harga'], 0, ".", ".") ?></h2>
                     </div>
                 </div>
 
-                <button type="button" class="btn btn-basic" data-toggle="modal"
-                        data-target="#exampleModal">ADD TO
-                    <img src="resources/images/cart1.png">
-                </button>
+                <a href="?controller=login&action=login">
+                    <button type="button" class="btn btn-basic">
+                        ADD TO
+                        <img src="resources/images/cart1.png">
+                    </button>
+                </a>
 
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                      aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -111,9 +113,10 @@
                 <tr>
                     <td width="70px">Page</td>
                     <?php
-                    for ($i = 1; $i<=$page; $i++) {
+                    for ($i = 1; $i <= $page; $i++) {
                         ?>
-                        <td width="50px"><a href="?controller=produk&action=showProduk&page=<?=$i?>"><?=$i?></a></td>
+                        <td width="50px"><a href="?controller=produk&action=showProduk&page=<?= $i ?>"><?= $i ?></a>
+                        </td>
 
                         <?php
                     }
