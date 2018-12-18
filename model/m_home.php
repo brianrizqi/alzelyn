@@ -27,7 +27,7 @@ join produk p on p.id_produk = do.id_produk join users u on p.id_user = u.id_use
     }
     public static function statPenjual($id_user){
         global $con;
-        $sql = "select sum(jumlah)as jumlah,do.id_produk as id_produk,p.nama_produk as nama_produk, u.nama as nama from detail_order do 
+        $sql = "select sum(jumlah) as jumlah,do.id_produk as id_produk,p.nama_produk as nama_produk, u.nama as nama from detail_order do 
 join produk p on p.id_produk = do.id_produk join users u on p.id_user = u.id_user 
 where u.id_user = $id_user GROUP by id_produk order by jumlah desc limit 0,1";
         $result = $con->query($sql);

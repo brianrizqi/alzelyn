@@ -71,7 +71,8 @@
                     <input type="hidden" name="controller" value="keranjang">
                     <input type="hidden" name="action" value="tambahCart">
                     <input name="id_produk" type="hidden" value="<?= $item['id_produk'] ?>">
-                    <input type="number"class="form-control" name="jumlah" placeholder="Jumlah" max="<?=$item['stok']?>" min="1" required>
+                    <input type="number"class="form-control" name="jumlah" placeholder="Jumlah" max="<?=$item['stok']?>" required>
+<!--                    <input type="number"class="form-control" name="jumlah" placeholder="Jumlah" max="--><?//=$item['stok']?><!--" min="1" required>-->
                     <br>
                     <input type="submit" name="submit" value="Tambah" class="btn btn-primary form-control">
                 </form>

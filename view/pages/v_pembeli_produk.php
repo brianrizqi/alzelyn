@@ -70,6 +70,7 @@
                     <h3>Stok : <?= $item['stok'] ?></h3>
                     <div id="harga">
                         <h2>Rp <?= number_format($item['harga'], 0, ".", ".") ?></h2>
+<!--                        <h2>Rp --><?//= $item['harga']?><!--</h2>-->
                     </div>
                 </div>
                 <a href="?controller=produk&action=showDetailProduk&id_produk=<?= $item['id_produk'] ?>">

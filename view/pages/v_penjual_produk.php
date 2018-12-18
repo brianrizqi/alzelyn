@@ -68,7 +68,7 @@
                     foreach ($list as $item) {
                         ?>
                         <div class="col-xs-12">
-                            <div class="panel panel-default">
+                            <div class="panel panel-primary">
                                 <div class="panel-heading">
                                     <h3 class="panel-title"><?= $item['nama_produk'] ?></h3>
                                 </div>

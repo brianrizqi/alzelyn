@@ -61,7 +61,7 @@
                     foreach ($list as $item) {
                         ?>
                         <div class="col-xs-12">
-                            <div class="panel panel-default">
+                            <div class="panel panel-primary">
                                 <div class="panel-body">
                                     <h5>Nama : <?= $item['nama'] ?></h5>
                                     <h5>Tanggal : <?= $item['tanggal'] ?></h5>
